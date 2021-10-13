@@ -103,7 +103,7 @@ export const CalculadoraScreen = () => {
              setNumero(`${num1 / num2}`)
              break
          case operadores.potencia:
-             setNumero(`${Math.pow(num1, num2)}`)
+             setNumero(`${Math.pow(num2, num1)}`)
              break
          case operadores.raiz:
              setNumero(`${Math.sqrt(num1)}`)
@@ -139,8 +139,8 @@ export const CalculadoraScreen = () => {
             <View style={styles.fila}>
 
                 <BtnCal texto="C" color="#9B9B9B" accion={limpiar} />
-                <BtnCal texto="R" color="#9B9B9B" accion={bRaz} />
-                <BtnCal texto="P" color="#9B9B9B" accion={bPot} />
+                <BtnCal texto="√" color="#9B9B9B" accion={bRaz} />
+                <BtnCal texto="x^2" color="#9B9B9B" accion={bPot} />
                 <BtnCal texto="/" color="#FF9427" accion={bDiv} />
 
             </View>
