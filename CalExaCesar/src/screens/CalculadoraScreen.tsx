@@ -37,20 +37,20 @@ export const CalculadoraScreen = () => {
         }
     }
 
-   /* const bdelete = () => {
-        let negativo = ''
-        let numeroTmp = Numero;
-        if (Numero.includes('-')) {
-            negativo = '-';
-            numeroTmp = Numero.substr(1);
-        }
-
-        if (numeroTmp.length > 1) {
-            setNumero(negativo + numeroTmp.slice(0, -1));
-        } else {
-            setNumero('0');
-        }
-    }*/
+    /* const bdelete = () => {
+         let negativo = ''
+         let numeroTmp = Numero;
+         if (Numero.includes('-')) {
+             negativo = '-';
+             numeroTmp = Numero.substr(1);
+         }
+ 
+         if (numeroTmp.length > 1) {
+             setNumero(negativo + numeroTmp.slice(0, -1));
+         } else {
+             setNumero('0');
+         }
+     }*/
 
     const positivoNegativo = () => {
         if (Numero.includes('-')) {
@@ -70,7 +70,11 @@ export const CalculadoraScreen = () => {
     }
 
     const bRaz = () => {
-        ultOp.current = operadores.raiz
+        if(Numero.includes('-')){
+            <Text>NaH</Text>
+        }else{
+            ultOp.current = operadores.raiz
+        }
     }
     const bPot = () => {
         cambiarNumPorAnterior();
@@ -85,31 +89,31 @@ export const CalculadoraScreen = () => {
         ultOp.current = operadores.sumar
     }
 
-    const calcular = () =>{
-     const num1 = Number (Numero);
-     const num2 = Number (NumeroAnt);
+    const calcular = () => {
+        const num1 = Number(Numero);
+        const num2 = Number(NumeroAnt);
 
-     switch( ultOp.current){
-         case operadores.sumar:
-             setNumero(`${num1 + num2}`)
-             break
-         case operadores.restar:
-             setNumero(`${num1 - num2}`)
-             break
-         case operadores.multiplicar:
-             setNumero(`${num1 * num2}`)
-             break
-         case operadores.dividir:
-             setNumero(`${num1 / num2}`)
-             break
-         case operadores.potencia:
-             setNumero(`${Math.pow(num2, num1)}`)
-             break
-         case operadores.raiz:
-             setNumero(`${Math.sqrt(num1)}`)
-             break
-     }
-     
+        switch (ultOp.current) {
+            case operadores.sumar:
+                setNumero(`${num1 + num2}`)
+                break
+            case operadores.restar:
+                setNumero(`${num1 - num2}`)
+                break
+            case operadores.multiplicar:
+                setNumero(`${num1 * num2}`)
+                break
+            case operadores.dividir:
+                setNumero(`${num1 / num2}`)
+                break
+            case operadores.potencia:
+                setNumero(`${Math.pow(num2, num1)}`)
+                break
+            case operadores.raiz:
+                setNumero(`${Math.sqrt(num1)}`)
+                break
+        }
+
     }
 
     const bres = () => {
@@ -175,7 +179,7 @@ export const CalculadoraScreen = () => {
             <View style={styles.fila}>
 
                 <BtnCal texto="0" ancho accion={armNum} />
-                <BtnCal texto="." accion={armNum} />
+                <BtnCal texto="+/-" accion={positivoNegativo} />
                 <BtnCal texto="=" color="#FF9427" accion={calcular} />
 
             </View>
