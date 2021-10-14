@@ -71,7 +71,7 @@ export const CalculadoraScreen = () => {
 
     const bRaz = () => {
         if(Numero.includes('-')){
-            <Text>NaH</Text>
+            setNumero(Numero.replace('-', 'ERROR'));
         }else{
             ultOp.current = operadores.raiz
         }
